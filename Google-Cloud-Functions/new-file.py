@@ -1,2 +1,2 @@
-print("hi git hub")
-print("Yea!! I got entered into github")
+name = "hi raja"
+print(name, " Yea!! you entered into github")

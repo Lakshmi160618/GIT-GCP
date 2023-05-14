@@ -1,3 +1,4 @@
+# importing section
 import json
 import airflow
 from airflow import DAG
@@ -6,20 +7,23 @@ from datetime import timedelta
 from airflow.models import Variable
 
 # define dictionary object
-
+# variable section
 # Define the bash command to execute
 json_schema = '/tmp/schema/local-schema-file.json'
 project_id = 'data-warehouse-99'
 dataset_id = 'gcp_training'
 table_id = 'master_table' 
 
+# default arguments secction
 default_args = {
     'start_date': airflow.utils.dates.days_ago(0),
     'retries': 1,
     'retry_delay': timedelta(minutes=5)
 }
 
+# python callable functions section
 '''This will run the DAG on the first minute of every hour, plus an additional time at the 1st minute mark of each hour.'''
+#Dag instantiation section
 dag = DAG(
     'bq_commands_practice_dag',
     default_args=default_args,
@@ -32,7 +36,7 @@ dag = DAG(
 
 # priority_weight has type int in Airflow DB, uses the maximum.
 
-
+# tasks definitions section
 bq_ls = BashOperator(
     task_id='bq_ls',
     bash_command='bq ls ',
@@ -103,5 +107,6 @@ bq_extract = BashOperator(
     depends_on_past=False, 
     do_xcom_push=False) 
 
+# tasks dependencies section
 
 bq_ls >> copy_json_schema >> create_dataset >> bq_update >> create_table >> load_csv_to_bq >> bq_query >> bq_head >> bq_extract

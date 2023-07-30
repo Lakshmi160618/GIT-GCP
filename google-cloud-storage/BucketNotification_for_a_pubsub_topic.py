@@ -12,7 +12,7 @@ def create_bucket_notification(bucket_name, topic_name):
             bucket,
             topic_name=topic_name,
             topic_project=None,
-            custom_attributes={'file_type': 'image', 'owner': 'lakshmi@example.com'},
+            custom_attributes={'file_type': 'CSV', 'owner': 'lakshmi@example.com'},
             event_types=['OBJECT_FINALIZE', 'OBJECT_DELETE'],
             payload_format="JSON_API_V1",
             notification_id=None,

@@ -1,0 +1,3 @@
+Note:
+-----
+Local uploads are limited to 100 MB. Please use Google Cloud Storage for larger files.

@@ -4,13 +4,13 @@ import pymysql
 
 def hello_world(request):
     # Set the Unix socket path for Cloud SQL Proxy
-    unix_socket = '/cloudsql/data-warehouse-99:us-central1:mysql'
+    unix_socket = '/cloudsql/bharath9581:asia-south1:mysql'
     
     # Configure the MySQL connection
     connection = pymysql.connect(
         user='root',
         password='hani',
-        database='newdata',
+        database='gcpdemo',
         unix_socket=unix_socket,
         cursorclass=pymysql.cursors.DictCursor
     )

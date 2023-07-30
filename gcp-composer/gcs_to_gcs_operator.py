@@ -17,16 +17,12 @@ default_args = {
     'retries': 1,
     'retry_delay': timedelta(minutes=1)
 }
-
 dag = DAG(
     'gcs_to_gcs_variable_dag',
     default_args=default_args,
     description='Load data from one GCS bucket to another using variables',
     schedule_interval=timedelta(days=1)
 )
-
-
-
 transfer_files = GCSToGCSOperator(
     task_id='transfer_file',
     source_bucket=source_bucket,
@@ -35,5 +31,4 @@ transfer_files = GCSToGCSOperator(
     destination_object=destination_object,
     dag=dag
 )
-
 transfer_files

@@ -22,6 +22,8 @@ default_args = {
 }
 
 # python callable functions section
+def func():
+    "running sql query"
 '''This will run the DAG on the first minute of every hour, plus an additional time at the 1st minute mark of each hour.'''
 #Dag instantiation section
 dag = DAG(
@@ -109,4 +111,4 @@ bq_extract = BashOperator(
 
 # tasks dependencies section
 
-bq_ls >> copy_json_schema >> create_dataset >> bq_update >> create_table >> load_csv_to_bq >> bq_query >> bq_head >> bq_extract
+bq_ls >> copy_json_schema >> [ create_dataset , bq_update ,create_table, load_csv_to_bq ] >> bq_query >> bq_head >> bq_extract

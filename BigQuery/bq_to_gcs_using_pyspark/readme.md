@@ -1,0 +1,2 @@
+# The following is the gcloud command is used to create this dataproc cluster in GCP
+gcloud dataproc clusters create cluster-gcp --enable-component-gateway --region us-central1 --master-machine-type n1-standard-2 --master-boot-disk-size 100 --num-workers 2 --worker-machine-type n1-standard-2 --worker-boot-disk-size 100 --image-version 2.1-debian11 --optional-components JUPYTER --project gcp-demo-dev-397415

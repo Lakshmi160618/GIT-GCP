@@ -1,12 +1,3 @@
-# main.py
-import os
-
-def hello_gcs(data, context):
-    """Cloud Function to handle GCS object finalization."""
-    file_name = data['name']
-    bucket_name = os.environ.get('BUCKET_NAME')
-
-    print(f"File {file_name} finalized in bucket {bucket_name}.")
 import os
 from google.cloud import bigquery
 

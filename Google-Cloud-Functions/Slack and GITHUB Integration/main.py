@@ -1,7 +1,7 @@
 import requests
 from requests.structures import CaseInsensitiveDict
 
-def my_func():
+def my_func(request):
 	print("slack with gitwebhooks")
 	url = "https://hooks.slack.com/services/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"
 	headers = CaseInsensitiveDict()
@@ -9,5 +9,4 @@ def my_func():
 	data = '{"text":"GITHUB code is committed"}'
 	resp = requests.post(url,headers=headers, data=data)
 	print(resp.status_code)
-	return f"Hellow World" 
-my_func()
+	return f"Hellow World"  

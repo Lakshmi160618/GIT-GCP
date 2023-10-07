@@ -1,4 +1,4 @@
 provider "google" {
-  project = "gcp-demo-dev-397415"
-  region  = "us-central1"
+  credentials = "D:\CDE\GIT-GCP\BigQuery\BigQueryWithTerraform\keys.json"
+  project     = "your-project-id"
 }

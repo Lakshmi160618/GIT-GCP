@@ -9,7 +9,7 @@ from google.cloud import bigquery
 from google.cloud import storage
 from google.cloud import secretmanager
 
-def hello_world(request):
+def bq_to_gsheets_cloud_func(request):
 	# two apis should be enabled google drive and sheets
 	scopes = ['https://www.googleapis.com/auth/spreadsheets',
 			'https://www.googleapis.com/auth/drive']
@@ -17,7 +17,7 @@ def hello_world(request):
 	# Get the path to the service account file from an environment variable
 	
 	client = secretmanager.SecretManagerServiceClient()
-	name = "projects/97229469281/secrets/MY_SECRET/versions/latest"
+	name = "projects/97229469281/secrets/cloudfunction/versions/latest"
 	response = client.access_secret_version(name=name)
 	payload = response.payload.data.decode("UTF-8")
 	service_account_info = json.loads(payload)	
@@ -27,7 +27,7 @@ def hello_world(request):
 
 	# Use the credentials to authenticate with Google Cloud services, such as BigQuery
 	gc = gspread.authorize(credentials)
-	your_sheet_key = "1MR6zZZgloutlRmg7wvBDtETHNLnBWIYsVpL7yN9crUI"
+	your_sheet_key = "1MW1CGYzWYUKwwGjLeZGUIov8lCrQPKvuzWgrr1WcHkw"
 	gauth = GoogleAuth()
 	drive = GoogleDrive(gauth)	
 	# open a google sheet

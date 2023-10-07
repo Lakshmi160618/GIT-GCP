@@ -59,4 +59,4 @@ process_csv_task = PythonOperator(
 )
 
 # Define the task dependencies
-process_csv_task 
+process_csv_task

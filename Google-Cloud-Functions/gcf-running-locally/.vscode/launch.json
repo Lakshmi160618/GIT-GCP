@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Functions Framework",
+            "type": "python",
+            "request": "launch",
+            "module": "functions_framework",
+            "args": ["--target", "bucket_creator"],
+            "console": "integratedTerminal"
+        }
+    ]
+}

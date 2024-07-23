@@ -6,7 +6,7 @@
             "type": "python",
             "request": "launch",
             "module": "functions_framework",
-            "args": ["--target", "bucket_creator"],
+            "args": ["--target", "bq_to_gsheets_cloud_func", "--source","D:\\CloudFunctions\\gcf-for-loading-from-bq-to-gsheet\\main.py"],
             "console": "integratedTerminal"
         }
     ]
